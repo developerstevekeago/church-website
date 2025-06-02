@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- AOS for scroll animation -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <title>Church website</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+</head>
+<body>
+    <header>
+  <div class="box1">
+    <a href="#">
+      <img src="/images/sda 1.jpg" alt="logo" />
+    </a>
+  </div>
+
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav class="box2" id="navMenu">
+    <a href="#">Home</a>
+    <a href="#">About us</a>
+    <a href="#">Ministry</a>
+    <a href="#">Events</a>
+
+    <label for="departments">Departments:</label>
+    <select id="departments" name="departments">
+      <option value="men"><a href="">AMO</a></option>
+      <option value="women"><a href="">AWM</a></option>
+      <option value="youth"><a href="">Youth</a></option>
+      <option value="ambassador"><a href="">Ambassador</a></option>
+      <option value="pathfinders"><a href="">Pathfinders</a></option>
+      <option value="adventurers"><a href="">Adventurers</a></option>
+      <option value="children"><a href="">Children Ministry</a></option>
+      <option value="music"><a href="">Development</a></option>
+    </select>
+
+    <a href="#">Contact us</a>
+  </nav>
+
+  <div class="box3">
+    <button>Join us</button>
+  </div>
+</header>
+
+<div class="hero">
+    <div class="container1">
+        <h4>
+            WE SIMPLY WANT TO LOVE GOD AND SERVE HIS PEOPLE
+        </h4>
+        <h1>
+            Hand For A <br> God's Grace
+        </h1>
+
+        <p>
+            We are a community of believers who are passionate about sharing the love of God and serving others. Join us in our mission to make a difference in the world through faith, service, and compassion.
+        </p>
+
+        <button class="hero-button">Join Us</button>
+    </div>
+    <div class="container2">
+        <img src="/images/toppng.com-seventh-day-adventist-logo-abstract-backgrounds-1862x1102.png" alt="logo">
+    </div>
+
+</div>
+
+<div class="about">
+
+</div>
+
+<a href="#sabbath-section" class="sabbath-button">
+  <i class="fas fa-calendar-heart"></i> Join Us on Sabbath
+</a>
+
+
+
+<section class="about-section">
+  <!-- Gallery -->
+  <div class="about-gallery">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" class="active" alt="Church 1">
+    <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Church 2">
+    <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80" alt="Church 3">
+    <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80" alt="Church 4">
+    <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Church 5">
+    <img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=600&q=80" alt="Church 6">
+    <img src="https://plus.unsplash.com/premium_photo-1681326937527-34038b0e0a02?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fHByYWlzZXxlbnwwfHwwfHx8MA%3D%3D" alt="Church 7">
+  </div>
+
+  <!-- About Content -->
+  <div class="about-content">
+    <h2>About Our Church</h2>
+    <p>
+        "Welcome to our Seventh-day Adventist Church! We are a loving community dedicated to worship, growth, and service. Together, we share Christ’s love and support one another in faith. Join us as we make a difference in our city and beyond!
+    </p>
+
+  </div>
+  
+    <div class="about-icons">
+      <div class="about-icon-box">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="9" cy="7" r="4"/>
+          <circle cx="17" cy="7" r="4"/>
+          <path d="M2 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/>
+          <path d="M14 21v-2a4 4 0 014-4h0a4 4 0 014 4v2"/>
+        </svg>
+        <div class="about-icon-label counter" data-target="300">0</div>
+        <div class="about-icon-desc">Members</div>
+      </div>
+
+      <div class="about-icon-box">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <rect x="3" y="3" width="7" height="7" rx="2"/>
+          <rect x="14" y="3" width="7" height="7" rx="2"/>
+          <rect x="14" y="14" width="7" height="7" rx="2"/>
+          <rect x="3" y="14" width="7" height="7" rx="2"/>
+        </svg>
+        <div class="about-icon-label counter" data-target="12">0</div>
+        <div class="about-icon-desc">Departments</div>
+      </div>
+
+      <div class="about-icon-box">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M6 3v12"/>
+          <circle cx="6" cy="18" r="3"/>
+          <path d="M6 6h9a3 3 0 013 3v3a3 3 0 01-3 3H6"/>
+        </svg>
+        <div class="about-icon-label counter" data-target="1">0</div>
+        <div class="about-icon-desc">Branch</div>
+      </div>
+    </div>
+
+    <!-- Closing Verse -->
+    <div class="about-verse">
+      <p class="verse-text">“For where two or three gather in my name, there am I with them.”</p>
+      <p class="verse-reference">— Matthew 18:20</p>
+    </div> 
+    
+</section>
+
+<div class="testimonials-section">
+  <h3>What Our Members Say</h3>
+  <div class="testimonials-grid">
+    <div class="testimonial-card shape1">
+      <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Member 1">
+      <p class="quote">“This church has become my second home. The love and spiritual growth here are real.”</p>
+      <div class="member-name">Sister Mary</div>
+      <div class="member-role">Choir Member</div>
+    </div>
+    <div class="testimonial-card shape2">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Member 2">
+      <p class="quote">“A vibrant and welcoming church family. I’ve grown so much in faith and purpose.”</p>
+      <div class="member-name">Brother James</div>
+      <div class="member-role">Youth Leader</div>
+    </div>
+    <div class="testimonial-card shape3">
+      <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Member 3">
+      <p class="quote">“From Bible study to community outreach, this church lives the Word.”</p>
+      <div class="member-name">Jane Auma</div>
+      <div class="member-role">Bible Study Group</div>
+    </div>
+    <div class="testimonial-card shape4">
+      <img src="https://randomuser.me/api/portraits/men/48.jpg" alt="Member 4">
+      <p class="quote">“When I joined, I was seeking answers. Now, I’ve found a family.”</p>
+      <div class="member-name">Samuel Njoroge</div>
+      <div class="member-role">Deacon</div>
+    </div>
+    <div class="testimonial-card shape5">
+      <img src="https://randomuser.me/api/portraits/women/58.jpg" alt="Member 5">
+      <p class="quote">“The sermons are powerful, and the fellowship is uplifting every week.”</p>
+      <div class="member-name">Lucy Wanjiku</div>
+      <div class="member-role">Usher</div>
+    </div>
+    <div class="testimonial-card shape6">
+      <img src="https://randomuser.me/api/portraits/men/27.jpg" alt="Member 6">
+      <p class="quote">“There’s no better place to serve God and be surrounded by faith-driven people.”</p>
+      <div class="member-name">Peter Otieno</div>
+      <div class="member-role">Pathfinder Counselor</div>
+    </div>
+  </div>
+</div>
+
+
+
+    <section class="events-carousel">
+        <h2 class="section-title">Upcoming Events</h2>
+        <div class="carousel-container">
+            <button class="carousel-btn left-btn" onclick="moveLeft()">&#10094;</button>
+
+            <div class="carousel-track" id="track">
+                <div class="event-card" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="event-content">
+                        <h2>Sabbath Worship</h2>
+                        <p>Join us for an inspiring Sabbath morning service with special music and message from Pastor Johnson.</p>
+                        <button class="event-btn">Learn More <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                <div class="event-card" style="background-image: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="event-content">
+                        <h2>Bible Study</h2>
+                        <p>Wednesday evening Bible study exploring the book of Revelation. All are welcome!</p>
+                        <button class="event-btn">Learn More <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                <div class="event-card" style="background-image: url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="event-content">
+                        <h2>Family Fun Day</h2>
+                        <p>Community picnic with games, food, and fellowship for the whole family.</p>
+                        <button class="event-btn">Learn More <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                <div class="event-card" style="background-image: url('https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="event-content">
+                        <h2>Health Expo</h2>
+                        <p>Free health screenings, cooking demonstrations, and wellness workshops.</p>
+                        <button class="event-btn">Learn More <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                <div class="event-card" style="background-image: url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="event-content">
+                        <h2>Youth Retreat</h2>
+                        <p>Weekend spiritual retreat for teens with worship, activities, and small groups.</p>
+                        <button class="event-btn">Learn More <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                <div class="event-card" style="background-image: url('https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?auto=format&fit=crop&w=1200&q=80');">
+                    <div class="event-content">
+                        <h2>Community Service</h2>
+                        <p>Help us serve meals at the local shelter and share God's love in action.</p>
+                        <button class="event-btn">Learn More <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-btn right-btn" onclick="moveRight()">&#10095;</button>
+        </div>
+    </section>
+
+    <section class="weekly-services">
+  <h2>Weekly Services & Programs</h2>
+  <div class="services-grid">
+    <div class="service-card" onclick="toggleDetails(this)">
+      <div class="icon">🕊️</div>
+      <h3>Sabbath School</h3>
+      <p class="time">Saturday - 9:00 AM</p>
+      <p class="details">Interactive Bible study, classes for all age groups.</p>
+    </div>
+
+    <div class="service-card" onclick="toggleDetails(this)">
+      <div class="icon">⛪</div>
+      <h3>Divine Service</h3>
+      <p class="time">Saturday - 11:00 AM</p>
+      <p class="details">Main worship session with sermon, prayer, and praise.</p>
+    </div>
+
+    <div class="service-card" onclick="toggleDetails(this)">
+      <div class="icon">🙏</div>
+      <h3>Prayer Meeting</h3>
+      <p class="time">Wednesday - 6:00 PM</p>
+      <p class="details">Midweek gathering for collective prayer and devotion.</p>
+    </div>
+
+    <div class="service-card" onclick="toggleDetails(this)">
+      <div class="icon">🎶</div>
+      <h3>Choir Practice</h3>
+      <p class="time">Friday - 5:30 PM</p>
+      <p class="details">Practice session for the choir and praise team.</p>
+    </div>
+
+    <div class="service-card" onclick="toggleDetails(this)">
+      <div class="icon">📖</div>
+      <h3>Youth Bible Study</h3>
+      <p class="time">Sunday - 3:00 PM</p>
+      <p class="details">Youth-led Bible study and discussions.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="content-categories parallax-bg">
+  <h2 class="section-title">Explore Our Content</h2>
+  <div class="category-grid">
+    <div class="category-card tilt" style="background-image: url('https://images.unsplash.com/photo-1571782605941-8c8fd0d43df6?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHByYWlzZXxlbnwwfHwwfHx8MA%3D%3D');">
+      <div class="overlay">
+        <h3>News</h3>
+        <p>Latest updates and announcements.</p>
+        <a href="news.html" class="btn">Go to News</a>
+      </div>
+    </div>
+    <div class="category-card tilt" style="background-image: url('https://images.unsplash.com/photo-1571782605941-8c8fd0d43df6?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHByYWlzZXxlbnwwfHwwfHx8MA%3D%3D');">
+      <div class="overlay">
+        <h3>Education</h3>
+        <p>Learning materials and resources.</p>
+        <a href="education.html" class="btn">Start Learning</a>
+      </div>
+    </div>
+    <div class="category-card tilt" style="background-image: url('https://images.unsplash.com/photo-1521020781921-ce0d582b7665?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJhaXNlfGVufDB8fDB8fHww');">
+      <div class="overlay">
+        <h3>Blog</h3>
+        <p>Thoughts, testimonies, and stories.</p>
+        <a href="blog.html" class="btn">Read Blog</a>
+      </div>
+    </div>
+    <div class="category-card tilt" style="background-image: url('https://plus.unsplash.com/premium_photo-1717325378227-3a953b43bd6a?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxfHx8ZW58MHx8fHx8');">
+      <div class="overlay">
+        <h3>Sermons</h3>
+        <p>Watch SDA sermons and spiritual talks.</p>
+        <a href="sermons.html" class="btn">Watch Sermons</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="giving-section parallax-bg-giving">
+  <div class="giving-container">
+    <div class="giving-columns">
+      <!-- Donation Column -->
+      <div class="giving-column">
+        <div class="giving-card">
+          <i class="fas fa-hand-holding-heart giving-icon"></i>
+          <h2>Online Giving & Tithes</h2>
+          <p class="verse">"Bring the whole tithe into the storehouse... Test me in this," says the Lord Almighty – <strong>Malachi 3:10</strong></p>
+          <p class="explanation">Your faithful giving enables our church to fulfill its mission. We accept tithes, offerings, and special donations securely online.</p>
+          <a href="https://your-donation-link.com" target="_blank" class="action-btn donate-btn tilt">
+            <i class="fas fa-donate"></i> Give Securely
+          </a>
+        </div>
+      </div>
+      
+      <!-- Prayer Column -->
+      <div class="giving-column">
+        <div class="giving-card">
+          <i class="fas fa-praying-hands giving-icon"></i>
+          <h2>Prayer Requests</h2>
+          <p class="verse">"Pray for each other so that you may be healed. The prayer of a righteous person is powerful and effective." – <strong>James 5:16</strong></p>
+          <p class="explanation">Share your prayer needs with our intercessory team. We're honored to pray for you and your loved ones.</p>
+          <a href="https://your-prayer-request-link.com" target="_blank" class="action-btn prayer-btn tilt">
+            <i class="fas fa-cross"></i> Submit Request
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blog-section parallax-bg-blog">
+  <div class="section-header">
+    <h2>Blog / Daily Devotionals</h2>
+    <p>Encourage daily scripture engagement. Stay spiritually fueled 🔥</p>
+  </div>
+
+  <div class="blog-grid">
+    <!-- Blog Card -->
+    <div class="blog-card tilt">
+      <img src="https://images.unsplash.com/photo-1551845800-98a3f7034048?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHByYWlzZXxlbnwwfHwwfHx8MA%3D%3D" alt="Devotion 1" />
+      <div class="blog-content">
+        <h3>Daily Bread: Trusting God’s Timing</h3>
+        <p>“Wait for the Lord; be strong and take heart…” – Psalm 27:14</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+    </div>
+
+    <!-- Blog Card -->
+    <div class="blog-card tilt">
+      <img src="https://images.unsplash.com/photo-1611512010662-d0a00863fc5a?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHByYWlzZXxlbnwwfHwwfHx8MA%3D%3D" alt="Devotion 2" />
+      <div class="blog-content">
+        <h3>The Power of Gratitude</h3>
+        <p>Discover how a grateful heart transforms your faith walk.</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+    </div>
+
+    <!-- Blog Card -->
+    <div class="blog-card tilt">
+      <img src="https://plus.unsplash.com/premium_photo-1681326937527-34038b0e0a02?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fHByYWlzZXxlbnwwfHwwfHx8MA%3D%3D" alt="Devotion 3" />
+      <div class="blog-content">
+        <h3>Peace in Chaos</h3>
+        <p>Jesus said, “Peace I leave with you…” – John 14:27</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section class="contact-location">
+        <div class="container">
+            <h2 class="section-title">Contact & Location</h2>
+            <div class="church-header">
+                <h1>Saika West SDA Church</h1>
+                <p>"Where faith, hope, and love come together"</p>
+            </div>
+            
+            <div class="contact-wrapper">
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.876462546652!2d36.821946415261246!3d-1.2920652992755596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10a24edfeaa1%3A0x2a57b3313a3deec0!2sNairobi%2C%20Kenya!5e0!3m2!1sen!2sus!4v1685828322698!5m2!1sen!2sus" 
+                        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <h3>Send Us a Message</h3>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Write your question or message here" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <h3>Connect With Us</h3>
+                <div class="info-grid">
+                    <a href="tel:+254759488117" class="contact-link"><i class="fas fa-phone-alt"></i> +254 759 488 117</a>
+                    <a href="mailto:info@saikawestsda.org" class="contact-link"><i class="fas fa-envelope"></i> info@saikawestsda.org</a>
+                    <a href="#" class="contact-link"><i class="fas fa-map-marker-alt"></i> Saika Road, Nairobi, Kenya</a>
+                    <a href="https://www.facebook.com/saikawestsda" target="_blank" class="contact-link"><i class="fab fa-facebook-f"></i> Saika West SDA</a>
+                    <a href="https://twitter.com/saikawestsda" target="_blank" class="contact-link"><i class="fab fa-twitter"></i> @SaikaWestSDA</a>
+                    <a href="https://instagram.com/saikawestsda" target="_blank" class="contact-link"><i class="fab fa-instagram"></i> saikawestsda</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="church-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Saika West SDA Church</h3>
+                <p>Part of the Seventh-day Adventist World Church</p>
+                <p>Nairobi Central Conference</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Ministries</a></li>
+                    <li><a href="#">Sermons</a></li>
+                    <li><a href="#">Events</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Service Times</h3>
+                <ul>
+                    <li>Sabbath School: 9:30 AM</li>
+                    <li>Divine Service: 11:00 AM</li>
+                    <li>Bible Study: Wed 7:00 PM</li>
+                    <li>Prayer Meeting: Fri 6:00 PM</li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Subscribe</h3>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 Saika West SDA Church. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="emergency-banner" class="emergency-banner">
+  <p>⚠️ Urgent: Due to the storm, all services are canceled today. Stay safe! ⚠️</p>
+  <button id="dismiss-banner" aria-label="Dismiss emergency banner">&times;</button>
+</div>
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+<script>
+  VanillaTilt.init(document.querySelectorAll(".tilt"), {
+    max: 15,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.3,
+    scale: 1.05,
+  });
+</script>
+
+    <script src="app.js"></script>
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+/* CSS Variables main page*/
+:root {
+
+  --color-header-bg: #f9f9f9;
+
+  --color-accent: #e0e0e0;
+  --color-border: #ccc;
+ 
+  --color-label: #555;
+  --color-white: #fff;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --box-shadow-header: 0 2px 6px var(--color-shadow);
+  --box-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+:root {
+  --primary-color: #4a6fa5;
+  --secondary-color: #166088;
+  
+  --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+
+:root {
+  --primary: #2c3e50;
+  --secondary: #3498db;
+  --accent: #e74c3c;
+  --light: #ecf0f1;
+  --text: #333;
+  --text-light: #fff;
+  
+  --sda-blue: #003366;
+  --sda-gold: #d4a00d;
+  --sda-green: #135350;
+  --color-bg: #b4ab9d;
+  --color-primary: #003366;
+  --color-primary-hover: #003366;
+    --text-dark: #333333;
+    --text-light: #ffffff;
+     --color-text: #333;
+
+}

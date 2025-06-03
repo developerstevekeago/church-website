@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="variables.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- AOS for scroll animation -->
@@ -30,9 +31,9 @@
 
   <nav class="box2" id="navMenu">
     <a href="#">Home</a>
-    <a href="#">About us</a>
+    <a href="#about-section">About us</a>
     <a href="#">Ministry</a>
-    <a href="#">Events</a>
+    <a href="#contact-us">Events</a>
 
     <label for="departments">Departments:</label>
     <select id="departments" name="departments">
@@ -46,7 +47,7 @@
       <option value="music"><a href="">Development</a></option>
     </select>
 
-    <a href="#">Contact us</a>
+    <a href="#contact-us">Contact us</a>
   </nav>
 
   <div class="box3">
@@ -85,7 +86,7 @@
 
 
 
-<section class="about-section">
+<section class="about-section" id="about-section">
   <!-- Gallery -->
   <div class="about-gallery">
     <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" class="active" alt="Church 1">
@@ -446,7 +447,7 @@
         </div>
     </section>
 
-    <footer class="church-footer">
+    <footer class="church-footer" id="conact-us">
         <div class="footer-container">
             <div class="footer-column">
                 <h3>Saika West SDA Church</h3>
@@ -499,15 +500,14 @@
         </div>
     </footer>
 
-    <div id="emergency-banner" class="emergency-banner">
+    <div id="emergency-banner" class="emergency-banner" style="display: none;">
   <p>⚠️ Urgent: Due to the storm, all services are canceled today. Stay safe! ⚠️</p>
   <button id="dismiss-banner" aria-label="Dismiss emergency banner">&times;</button>
 </div>
 
 
 
-
-
+ 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 <script>
   VanillaTilt.init(document.querySelectorAll(".tilt"), {
@@ -520,6 +520,6 @@
 </script>
 
     <script src="app.js"></script>
-    </script>
+    
 </body>
 </html>

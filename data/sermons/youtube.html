@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SDA Sermons Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="you.css">
+    <style>
+      /* CSS will be placed here */
+    </style>
+  </head>
+  <body>
+    <header class="sermons-header">
+      <div class="container">
+        <a href="index.html" class="logo">
+          <img src="/images/sda 1.jpg" alt="Church Logo" />
+          <span>Seventh-day Adventist</span>
+        </a>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="sermons.html" class="active">Sermons</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact</a>
+          <div class="nav-indicator"></div>
+        </nav>
+        <button class="menu-toggle" aria-label="Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      <div class="header-content">
+        <div class="header-title">
+          <h1>Inspirational Sermons</h1>
+          <p>Grow in faith through the word of God</p>
+        </div>
+        <div class="header-scroll">
+          <span>Scroll to explore</span>
+          <div class="scroll-arrow"></div>
+        </div>
+      </div>
+      <div class="header-wave">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="currentColor"></path>
+          <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="currentColor"></path>
+          <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="currentColor"></path>
+        </svg>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="controls">
+        <div class="search-container">
+          <i class="fas fa-search"></i>
+          <input type="text" id="search" placeholder="Search sermons..." />
+          <div class="search-focus"></div>
+        </div>
+        <select id="topic-filter">
+          <option value="">All Topics</option>
+          <option value="prophecy">Prophecy</option>
+          <option value="family">Family</option>
+          <option value="health">Health</option>
+          <option value="faith">Faith</option>
+          <option value="sabbath">Sabbath</option>
+          <option value="end times">End Times</option>
+        </select>
+      </div>
+
+      <div class="videos" id="videos">
+        <div class="loading">
+          <div class="spinner"></div>
+          <p>Loading sermons...</p>
+        </div>
+      </div>
+    </main>
+
+    <div class="modal" id="modal">
+      <div class="modal-overlay" onclick="closeModal()"></div>
+      <div class="modal-content">
+        <button class="close-btn" onclick="closeModal()">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="video-container">
+          <iframe
+            id="player"
+            src=""
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="video-info">
+          <h3 class="video-modal-title">Sermon Title</h3>
+          <div class="video-meta">
+            <span class="video-speaker"><i class="fas fa-user"></i> Speaker Name</span>
+            <span class="video-date"><i class="fas fa-calendar-alt"></i> June 15, 2023</span>
+            <span class="video-topic"><i class="fas fa-tag"></i> Faith</span>
+          </div>
+          <p class="video-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="/images/sda 1.jpg" alt="Church Logo" />
+          <p>Seventh-day Adventist Church</p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="sermons.html">Sermons</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h3>Connect With Us</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023 SDA Church. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // JavaScript will be placed here
+      document.addEventListener('DOMContentLoaded', function() {
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+          menuToggle.classList.toggle('active');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+              behavior: 'smooth'
+            });
+          });
+        });
+
+        // Search input animation
+        const searchInput = document.getElementById('search');
+        const searchFocus = document.querySelector('.search-focus');
+        
+        searchInput.addEventListener('focus', function() {
+          searchFocus.style.width = '100%';
+          searchFocus.style.opacity = '1';
+        });
+        
+        searchInput.addEventListener('blur', function() {
+          searchFocus.style.width = '0';
+          searchFocus.style.opacity = '0';
+        });
+
+        // Modal functionality
+        window.openModal = function(videoId, title, speaker, date, topic, description) {
+          const modal = document.getElementById('modal');
+          const player = document.getElementById('player');
+          player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+          
+          document.querySelector('.video-modal-title').textContent = title;
+          document.querySelector('.video-speaker').innerHTML = `<i class="fas fa-user"></i> ${speaker}`;
+          document.querySelector('.video-date').innerHTML = `<i class="fas fa-calendar-alt"></i> ${date}`;
+          document.querySelector('.video-topic').innerHTML = `<i class="fas fa-tag"></i> ${topic}`;
+          document.querySelector('.video-description').textContent = description;
+          
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        };
+
+        window.closeModal = function() {
+          const modal = document.getElementById('modal');
+          const player = document.getElementById('player');
+          player.src = '';
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        };
+
+        // Scroll animations
+        const animateOnScroll = function() {
+          const elements = document.querySelectorAll('.video, .header-title, .controls');
+          
+          elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+            
+            if (elementPosition < screenPosition) {
+              element.classList.add('animated');
+            }
+          });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Run once on load
+      });
+    </script>
+
+    <script src="you.js"></script>
+  </body>
+</html>

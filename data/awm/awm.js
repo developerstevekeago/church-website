@@ -19,24 +19,62 @@ document.querySelectorAll('.women-nav a').forEach(link => {
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.women-header');
     if (window.scrollY > 50) {
-        header.style.background = 'rgba(81, 45, 109, 0.95)';
+        header.style.background = 'var(--sda-blue)';
     } else {
-        header.style.background = 'rgba(81, 45, 109, 0.8)';
+        header.style.background = 'rgba(0, 51, 102, 0.9)';
     }
 });
 
 
-// Alternative for carousel (would need additional HTML)
-const images = [
-    'https://plus.unsplash.com/premium_photo-1673326630848-fecf43ae8db1?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D', // Women studying Bible
-    'https://images.unsplash.com/photo-1748274048033-6a5644a270ec?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxM3x8fGVufDB8fHx8fA%3D%3D', // Service project
-    'https://images.unsplash.com/photo-1746699421299-ac9d7e868855?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxN3x8fGVufDB8fHx8fA%3D%3D'  // Worship gathering
-];
-let current = 0;
 
-function rotateHero() {
-    current = (current + 1) % images.length;
-    document.querySelector('.hero-bg').style.backgroundImage = `url(${images[current]})`;
-    setTimeout(rotateHero, 5000);
+
+  const modal = document.getElementById('eventModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const closeBtn = document.querySelector('.close-modal');
+  const form = document.getElementById('signupForm');
+
+  document.querySelectorAll('.signup-link').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      const eventTitle = this.dataset.event;
+      modalTitle.textContent = `Sign Up: ${eventTitle}`;
+      modal.style.display = 'flex';
+    });
+  });
+
+  closeBtn.addEventListener('click', () => modal.style.display = 'none');
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) modal.style.display = 'none';
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert("Thanks for signing up! We'll contact you soon.");
+    form.reset();
+    modal.style.display = 'none';
+  });
+
+
+
+//  
+
+
+  const slides = document.querySelectorAll('.testimony-slide');
+const prevBtn = document.querySelector('.carousel-prev');
+const nextBtn = document.querySelector('.carousel-next');
+let currentSlide = 0;
+
+function showSlide(index) {
+  slides.forEach(slide => slide.classList.remove('active'));
+  slides[index].classList.add('active');
 }
-rotateHero();
+
+prevBtn.addEventListener('click', () => {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+});
+
+nextBtn.addEventListener('click', () => {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+});

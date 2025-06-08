@@ -897,9 +897,8 @@ header {
 
 /* Parallax Section Background */
 .parallax-bg {
-  background: url("https://images.unsplash.com/photo-1622598453695-4fbaf151aadc?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHByYWlzZXxlbnwwfHwwfHx8MA%3D%3D")
-    no-repeat center center fixed;
-  background-size: cover;
+  /* background: url("https://images.unsplash.com/photo-1619252584172-a83a949b6efd?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2hpdGUlMjBiYWNrZ3JvdW5kfGVufDB8MHwwfHx8MA%3D%3D") no-repeat center center fixed;
+  background-size: cover; */
   padding: 4rem 2rem;
   text-align: center;
   color: white;
@@ -1149,7 +1148,7 @@ header {
 
 /* Parallax Background */
 .parallax-bg-blog {
-  background: url("https://images.unsplash.com/photo-1551845800-98a3f7034048?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHByYWlzZXxlbnwwfHwwfHx8MA%3D%3D")
+  background: url("https://images.unsplash.com/photo-1601950102746-617462d11246?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZGV2b3Rpb258ZW58MHwwfDB8fHww")
     no-repeat center center fixed;
   background-size: cover;
   padding: 4rem 2rem;

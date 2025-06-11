@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFab Engineering Portal</title>
+    <base target="_self">
+    <style>
+        /* CSS Variables for Theme */
+        :root {
+            /* Primary Colors */
+            --primary: #005f73;
+            --primary-dark: #0a4b5e;
+            --primary-light: #4a8fe7;
+            --secondary: #ee6c4d;
+            --secondary-dark: #d45a3b;
+            --accent: #3dccc7;
+            
+            /* Neutral Colors */
+            --text-dark: #293241;
+            --text-light: #f8f9fa;
+            --bg-light: #ffffff;
+            --bg-dark: #1a1a2e;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-500: #adb5bd;
+            --gray-700: #495057;
+            --gray-900: #212529;
+            
+            /* Utility Variables */
+            --nav-height: 70px;
+            --sidebar-width: 250px;
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --box-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Dark Mode Variables */
+        .dark-mode {
+            --text-dark: #f8f9fa;
+            --text-light: #293241;
+            --bg-light: #1a1a2e;
+            --bg-dark: #0d1321;
+            --gray-100: #212529;
+            --gray-200: #343a40;
+            --gray-500: #6c757d;
+            --gray-700: #adb5bd;
+            --gray-900: #f8f9fa;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary);
+            color: var(--text-light);
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: var(--text-light);
+        }
+
+        .btn-accent {
+            background-color: var(--secondary);
+        }
+
+        .btn-accent:hover {
+            background-color: var(--secondary-dark);
+        }
+
+        .card {
+            background-color: var(--bg-light);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            padding: 1.5rem;
+            transition: var(--transition);
+            margin-bottom: 1.5rem;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-lg);
+        }
+
+        .hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Auth Pages */
+        .auth-container {
+            display: flex;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        .auth-left {
+            flex: 1;
+            display: none;
+            background: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            position: relative;
+        }
+
+        .auth-left::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 95, 115, 0.7);
+        }
+
+        .auth-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .auth-form {
+            width: 100%;
+            max-width: 400px;
+            background-color: var(--bg-light);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-lg);
+            animation: fadeIn 0.6s ease;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .auth-header h1 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .auth-header p {
+            color: var(--gray-500);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            transition: var(--transition);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 95, 115, 0.1);
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 12px;
+            top: 38px;
+            cursor: pointer;
+            color: var(--gray-500);
+            transition: var(--transition);
+        }
+
+        .password-toggle:hover {
+            color: var(--primary);
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .form-footer a {
+            color: var(--primary);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .form-footer a:hover {
+            color: var(--primary-dark);
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        /* Dashboard Layout */
+        .dashboard {
+            display: flex;
+            min-height: 100vh;
+            background-color: var(--gray-100);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--bg-light);
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            z-index: 100;
+            transition: var(--transition);
+            transform: translateX(-100%);
+        }
+
+        .sidebar.active {
+            transform: translateX(0);
+        }
+
+        .sidebar-header {
+            padding: 1rem;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .sidebar-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .sidebar-close {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray-500);
+            transition: var(--transition);
+        }
+
+        .sidebar-close:hover {
+            color: var(--secondary);
+        }
+
+        .sidebar-menu {
+            padding: 1rem 0;
+        }
+
+        .menu-item {
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            color: var(--gray-700);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .menu-item:hover {
+            background-color: var(--gray-200);
+            color: var(--primary);
+        }
+
+        .menu-item.active {
+            background-color: rgba(0, 95, 115, 0.1);
+            color: var(--primary);
+            border-left: 4px solid var(--primary);
+        }
+
+        .menu-icon {
+            margin-right: 1rem;
+            font-size: 1.25rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: 0;
+            transition: var(--transition);
+        }
+
+        .main-content.expanded {
+            margin-left: var(--sidebar-width);
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            height: var(--nav-height);
+            background-color: var(--bg-light);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 90;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar-toggle {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            cursor: pointer;
+            color: var(--gray-700);
+            transition: var(--transition);
+        }
+
+        .sidebar-toggle:hover {
+            color: var(--primary);
+        }
+
+        .company-name {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.5rem;
+            font-weight: 600;
+        }
+
+        .user-name {
+            font-weight: 500;
+            margin-right: 0.5rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            cursor: pointer;
+            color: var(--gray-700);
+            margin-right: 1rem;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            color: var(--secondary);
+        }
+
+        /* Dashboard Content */
+        .content {
+            padding: 2rem;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title {
+            font-size: 1.75rem;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 95, 115, 0.8), rgba(0, 95, 115, 0.8)), 
+                        url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            z-index: -1;
+            transform: translateZ(-1px) scale(1.2);
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 0.6s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease 0.3s forwards;
+        }
+
+        /* News Section */
+        .news-section {
+            margin-bottom: 3rem;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .news-card {
+            background-color: var(--bg-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--box-shadow-lg);
+        }
+
+        .news-img {
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .news-card:hover .news-img img {
+            transform: scale(1.1);
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-date {
+            color: var(--secondary);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+
+        .news-excerpt {
+            color: var(--gray-700);
+            margin-bottom: 1rem;
+        }
+
+        /* Tools Section */
+        .tools-section {
+            margin-bottom: 3rem;
+        }
+
+        .tools-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--gray-200);
+            margin-bottom: 1.5rem;
+        }
+
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-weight: 600;
+            color: var(--gray-700);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .calculator {
+            background-color: var(--bg-light);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        .calculator-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .calculator-form .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .calculator-result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: rgba(0, 95, 115, 0.1);
+            border-radius: var(--border-radius);
+            text-align: center;
+            display: none;
+        }
+
+        .result-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* Responsive Styles */
+        @media (min-width: 768px) {
+            .auth-left {
+                display: block;
+            }
+            
+            .sidebar {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: var(--sidebar-width);
+            }
+            
+            .sidebar-toggle {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .page-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Dashboard Page Transitions */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Auth Pages -->
+    <div id="auth-pages">
+        <!-- Login Page -->
+        <div id="login-page" class="auth-container">
+            <div class="auth-left">
+                <div class="auth-left-content">
+                    <h1>Welcome to TechFab Engineering</h1>
+                    <p>Your premier portal for manufacturing tools and resources</p>
+                </div>
+            </div>
+            <div class="auth-right">
+                <div class="auth-form">
+                    <div class="auth-header">
+                        <h1>Login</h1>
+                        <p>Access your engineering portal</p>
+                    </div>
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="login-email">Email</label>
+                            <input type="email" id="login-email" class="form-control" required>
+                            <div class="error-message" id="login-email-error">Please enter a valid email</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" class="form-control" required>
+                            <span class="password-toggle" id="login-toggle">👁️</span>
+                            <div class="error-message" id="login-password-error">Password must be at least 6 characters</div>
+                        </div>
+                        <button type="submit" class="btn btn-accent" style="width: 100%;">Login</button>
+                        <div class="form-footer">
+                            <p>Don't have an account? <a href="#" id="show-register">Create one</a></p>
+                            <p><a href="#" id="show-reset">Forgot password?</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Page -->
+        <div id="register-page" class="auth-container" style="display: none;">
+            <div class="auth-left">
+                <div class="auth-left-content">
+                    <h1>Join TechFab Engineering</h1>
+                    <p>Access all our engineering tools and resources</p>
+                </div>
+            </div>
+            <div class="auth-right">
+                <div class="auth-form">
+                    <div class="auth-header">
+                        <h1>Create Account</h1>
+                        <p>Get started with your engineering portal</p>
+                    </div>
+                    <form id="register-form">
+                        <div class="form-group">
+                            <label for="register-name">Full Name</label>
+                            <input type="text" id="register-name" class="form-control" required>
+                            <div class="error-message" id="register-name-error">Please enter your name</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-email">Email</label>
+                            <input type="email" id="register-email" class="form-control" required>
+                            <div class="error-message" id="register-email-error">Please enter a valid email</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">Password</label>
+                            <input type="password" id="register-password" class="form-control" required>
+                            <span class="password-toggle" id="register-toggle">👁️</span>
+                            <div class="error-message" id="register-password-error">Password must be at least 6 characters</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-confirm">Confirm Password</label>
+                            <input type="password" id="register-confirm" class="form-control" required>
+                            <div class="error-message" id="register-confirm-error">Passwords don't match</div>
+                        </div>
+                        <button type="submit" class="btn btn-accent" style="width: 100%;">Create Account</button>
+                        <div class="form-footer">
+                            <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reset Password Page -->
+        <div id="reset-page" class="auth-container" style="display: none;">
+            <div class="auth-left">
+                <div class="auth-left-content">
+                    <h1>Reset Your Password</h1>
+                    <p>We'll help you get back into your account</p>
+                </div>
+            </div>
+            <div class="auth-right">
+                <div class="auth-form">
+                    <div class="auth-header">
+                        <h1>Reset Password</h1>
+                        <p>Enter your email to receive reset instructions</p>
+                    </div>
+                    <form id="reset-form">
+                        <div class="form-group">
+                            <label for="reset-email">Email</label>
+                            <input type="email" id="reset-email" class="form-control" required>
+                            <div class="error-message" id="reset-email-error">Please enter a valid email</div>
+                        </div>
+                        <button type="submit" class="btn btn-accent" style="width: 100%;">Send Reset Link</button>
+                        <div class="form-footer">
+                            <p>Remember your password? <a href="#" id="show-login-from-reset">Login</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" style="display: none;">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">TechFab</div>
+                <div class="sidebar-close">&times;</div>
+            </div>
+            <div class="sidebar-menu">
+                <div class="menu-item active" data-page="dashboard-home">
+                    <span class="menu-icon">🏠</span>
+                    <span>Dashboard</span>
+                </div>
+                <div class="menu-item" data-page="machine-tools">
+                    <span class="menu-icon">⚙️</span>
+                    <span>Machine Tools</span>
+                </div>
+                <div class="menu-item" data-page="company-news">
+                    <span class="menu-icon">📰</span>
+                    <span>Company News</span>
+                </div>
+                <div class="menu-item" data-page="projects">
+                    <span class="menu-icon">📋</span>
+                    <span>Projects</span>
+                </div>
+                <div class="menu-item" data-page="settings">
+                    <span class="menu-icon">⚙️</span>
+                    <span>Settings</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Navigation -->
+            <div class="top-nav">
+                <div class="nav-left">
+                    <div class="sidebar-toggle">☰</div>
+                    <div class="company-name">TechFab Engineering Portal</div>
+                </div>
+                <div class="nav-right">
+                    <button class="theme-toggle" id="theme-toggle">🌓</button>
+                    <div class="user-menu">
+                        <div class="user-avatar">JD</div>
+                        <div class="user-name">John Doe</div>
+                        <span>▼</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div class="content">
+                <!-- Dashboard Home Page -->
+                <div id="dashboard-home" class="page active">
+                    <div class="hero">
+                        <div class="hero-content">
+                            <h1>Welcome Back, John</h1>
+                            <p>Access all your engineering tools and resources in one place</p>
+                        </div>
+                    </div>
+
+                    <div class="quick-stats">
+                        <div class="stats-grid">
+                            <div class="card hidden">
+                                <h3>Active Projects</h3>
+                                <p class="stat-value">12</p>
+                            </div>
+                            <div class="card hidden">
+                                <h3>Completed This Month</h3>
+                                <p class="stat-value">8</p>
+                            </div>
+                            <div class="card hidden">
+                                <h3>Upcoming Deadlines</h3>
+                                <p class="stat-value">3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Machine Tools Page -->
+                <div id="machine-tools" class="page">
+                    <div class="page-header">
+                        <h1 class="page-title">Machine Operator Tools</h1>
+                    </div>
+
+                    <div class="tools-section">
+                        <div class="tools-tabs">
+                            <button class="tab-btn active" data-tab="laser-cutting">Laser Cutting</button>
+                            <button class="tab-btn" data-tab="cnc-bending">CNC Bending</button>
+                            <button class="tab-btn" data-tab="sheet-shearing">Sheet Shearing</button>
+                        </div>
+
+                        <div class="tab-content active" id="laser-cutting">
+                            <div class="calculator">
+                                <h2 class="calculator-title">Laser Cutting Calculator</h2>
+                                <form class="calculator-form" id="laser-calculator">
+                                    <div class="form-group">
+                                        <label for="laser-material">Material Type</label>
+                                        <select id="laser-material" class="form-control" required>
+                                            <option value="">Select Material</option>
+                                            <option value="mild_steel">Mild Steel</option>
+                                            <option value="stainless_steel">Stainless Steel</option>
+                                            <option value="aluminum">Aluminum</option>
+                                            <option value="copper">Copper</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="laser-thickness">Material Thickness (mm)</label>
+                                        <input type="number" id="laser-thickness" class="form-control" min="0.1" step="0.1" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="laser-length">Cut Length (meters)</label>
+                                        <input type="number" id="laser-length" class="form-control" min="0.1" step="0.1" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-accent">Calculate</button>
+                                </form>
+                                <div class="calculator-result" id="laser-result">
+                                    <h3>Estimated Cost</h3>
+                                    <div class="result-value">$<span id="laser-cost">0.00</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="cnc-bending">
+                            <div class="calculator">
+                                <h2 class="calculator-title">CNC Bending Calculator</h2>
+                                <form class="calculator-form" id="cnc-calculator">
+                                    <div class="form-group">
+                                        <label for="cnc-material">Metal Type</label>
+                                        <select id="cnc-material" class="form-control" required>
+                                            <option value="">Select Metal</option>
+                                            <option value="mild_steel">Mild Steel</option>
+                                            <option value="stainless_steel">Stainless Steel</option>
+                                            <option value="aluminum">Aluminum</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cnc-gauge">Metal Gauge</label>
+                                        <select id="cnc-gauge" class="form-control" required>
+                                            <option value="">Select Gauge</option>
+                                            <option value="18">18 Gauge (1.2mm)</option>
+                                            <option value="16">16 Gauge (1.6mm)</option>
+                                            <option value="14">14 Gauge (2.0mm)</option>
+                                            <option value="12">12 Gauge (2.7mm)</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cnc-bends">Number of Bends</label>
+                                        <input type="number" id="cnc-bends" class="form-control" min="1" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-accent">Calculate</button>
+                                </form>
+                                <div class="calculator-result" id="cnc-result">
+                                    <h3>Estimated Cost</h3>
+                                    <div class="result-value">$<span id="cnc-cost">0.00</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="sheet-shearing">
+                            <div class="calculator">
+                                <h2 class="calculator-title">Sheet Shearing Calculator</h2>
+                                <form class="calculator-form" id="shearing-calculator">
+                                    <div class="form-group">
+                                        <label for="shearing-material">Sheet Material</label>
+                                        <select id="shearing-material" class="form-control" required>
+                                            <option value="">Select Material</option>
+                                            <option value="mild_steel">Mild Steel</option>
+                                            <option value="stainless_steel">Stainless Steel</option>
+                                            <option value="aluminum">Aluminum</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="shearing-thickness">Sheet Thickness (mm)</label>
+                                        <input type="number" id="shearing-thickness" class="form-control" min="0.1" step="0.1" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="shearing-size">Sheet Size (m²)</label>
+                                        <input type="number" id="shearing-size" class="form-control" min="0.1" step="0.1" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="shearing-cuts">Number of Cuts</label>
+                                        <input type="number" id="shearing-cuts" class="form-control" min="1" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-accent">Calculate</button>
+                                </form>
+                                <div class="calculator-result" id="shearing-result">
+                                    <h3>Estimated Cost</h3>
+                                    <div class="result-value">$<span id="shearing-cost">0.00</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Company News Page -->
+                <div id="company-news" class="page">
+                    <div class="page-header">
+                        <h1 class="page-title">Company News</h1>
+                    </div>
+
+                    <div class="news-section">
+                        <div class="news-grid">
+                            <div class="news-card hidden">
+                                <div class="news-img">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="New Facility">
+                                </div>
+                                <div class="news-content">
+                                    <div class="news-date">June 15, 2023</div>
+                                    <h3 class="news-title">New Manufacturing Facility Opening</h3>
+                                    <p class="news-excerpt">We're excited to announce the opening of our new 50,000 sq ft manufacturing facility in the industrial park.</p>
+                                    <a href="#" class="btn btn-secondary">Read More</a>
+                                </div>
+                            </div>
+                            <div class="news-card hidden">
+                                <div class="news-img">
+                                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Safety Training">
+                                </div>
+                                <div class="news-content">
+                                    <div class="news-date">June 10, 2023</div>
+                                    <h3 class="news-title">Quarterly Safety Training</h3>
+                                    <p class="news-excerpt">All employees must complete the quarterly safety training by June 30th. Sign up now for available sessions.</p>
+                                    <a href="#" class="btn btn-secondary">Read More</a>
+                                </div>
+                            </div>
+                            <div class="news-card hidden">
+                                <div class="news-img">
+                                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="New Equipment">
+                                </div>
+                                <div class="news-content">
+                                    <div class="news-date">June 5, 2023</div>
+                                    <h3 class="news-title">New CNC Machines Installed</h3>
+                                    <p class="news-excerpt">Our production capacity has increased by 30% with the installation of 5 new state-of-the-art CNC machines.</p>
+                                    <a href="#" class="btn btn-secondary">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects Page -->
+                <div id="projects" class="page">
+                    <div class="page-header">
+                        <h1 class="page-title">Projects</h1>
+                    </div>
+                    <div class="card">
+                        <p>Projects content goes here...</p>
+                    </div>
+                </div>
+
+                <!-- Settings Page -->
+                <div id="settings" class="page">
+                    <div class="page-header">
+                        <h1 class="page-title">Settings</h1>
+                    </div>
+                    <div class="card">
+                        <p>Settings content goes here...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Current page state
+            let currentPage = 'login';
+            let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            // Mock user data for demo purposes
+            const mockUsers = [
+                { email: 'engineer@techfab.com', password: 'techfab123', name: 'John Doe' }
+            ];
+            
+            // Initialize theme
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+            }
+            
+            // Auth Page Transitions
+            document.getElementById('show-register').addEventListener('click', function(e) {
+                e.preventDefault();
+                switchAuthPage('register');
+            });
+            
+            document.getElementById('show-login').addEventListener('click', function(e) {
+                e.preventDefault();
+                switchAuthPage('login');
+            });
+            
+            document.getElementById('show-reset').addEventListener('click', function(e) {
+                e.preventDefault();
+                switchAuthPage('reset');
+            });
+            
+            document.getElementById('show-login-from-reset').addEventListener('click', function(e) {
+                e.preventDefault();
+                switchAuthPage('login');
+            });
+            
+            function switchAuthPage(page) {
+                document.getElementById(`${currentPage}-page`).style.display = 'none';
+                document.getElementById(`${page}-page`).style.display = 'flex';
+                currentPage = page;
+            }
+            
+            // Login Form Validation
+            document.getElementById('login-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
+                let isValid = true;
+                
+                // Reset errors
+                document.getElementById('login-email-error').style.display = 'none';
+                document.getElementById('login-password-error').style.display = 'none';
+                
+                // Email validation
+                if (!email || !validateEmail(email)) {
+                    document.getElementById('login-email-error').style.display = 'block';
+                    isValid = false;
+                }
+                
+                // Password validation
+                if (!password || password.length < 6) {
+                    document.getElementById('login-password-error').style.display = 'block';
+                    isValid = false;
+                }
+                
+                if (isValid) {
+                    // Check against mock users
+                    const user = mockUsers.find(u => u.email === email && u.password === password);
+                    if (user) {
+                        // Successful login - show dashboard
+                        document.getElementById('auth-pages').style.display = 'none';
+                        document.getElementById('dashboard').style.display = 'block';
+                        
+                        // Set user name in dashboard
+                        document.querySelector('.user-name').textContent = user.name;
+                        document.querySelector('.user-avatar').textContent = 
+                            user.name.split(' ').map(n => n[0]).join('');
+                    } else {
+                        alert('Invalid email or password');
+                    }
+                }
+            });
+            
+            // Register Form Validation
+            document.getElementById('register-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const name = document.getElementById('register-name').value;
+                const email = document.getElementById('register-email').value;
+                const password = document.getElementById('register-password').value;
+                const confirm = document.getElementById('register-confirm').value;
+                let isValid = true;
+                
+                // Reset errors
+                document.getElementById('register-name-error').style.display = 'none';
+                document.getElementById('register-email-error').style.display = 'none';
+                document.getElementById('register-password-error').style.display = 'none';
+                document.getElementById('register-confirm-error').style.display = 'none';
+                
+                // Name validation
+                if (!name) {
+                    document.getElementById('register-name-error').style.display = 'block';
+                    isValid = false;
+                }
+                
+                // Email validation
+                if (!email || !validateEmail(email)) {
+                    document.getElementById('register-email-error').style.display = 'block';
+                    isValid = false;
+                }
+                
+                // Password validation
+                if (!password || password.length < 6) {
+                    document.getElementById('register-password-error').style.display = 'block';
+                    isValid = false;
+                }
+                
+                // Confirm password validation
+                if (password !== confirm) {
+                    document.getElementById('register-confirm-error').style.display = 'block';
+                    isValid = false;
+                }
+                
+                if (isValid) {
+                    // In a real app, you would send this data to your backend
+                    alert('Account created successfully! Please login.');
+                    switchAuthPage('login');
+                }
+            });
+            
+            // Reset Form Validation
+            document.getElementById('reset-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('reset-email').value;
+                let isValid = true;
+                
+                // Reset error
+                document.getElementById('reset-email-error').style.display = 'none';
+                
+                // Email validation
+                if (!email || !validateEmail(email)) {
+                    document.getElementById('reset-email-error').style.display = 'block';
+                    isValid = false;
+                }
+                
+                if (isValid) {
+                    // In a real app, you would send a reset email
+                    alert('Password reset link sent to your email');
+                    switchAuthPage('login');
+                }
+            });
+            
+            // Password Toggle
+            document.getElementById('login-toggle').addEventListener('click', function() {
+                togglePasswordVisibility('login-password', this);
+            });
+            
+            document.getElementById('register-toggle').addEventListener('click', function() {
+                togglePasswordVisibility('register-password', this);
+            });
+            
+            function togglePasswordVisibility(inputId, toggleElement) {
+                const input = document.getElementById(inputId);
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    toggleElement.textContent = '👁️';
+                } else {
+                    input.type = 'password';
+                    toggleElement.textContent = '👁️';
+                }
+            }
+            
+            // Dashboard Sidebar Toggle
+            document.querySelector('.sidebar-toggle').addEventListener('click', function() {
+                document.querySelector('.sidebar').classList.toggle('active');
+                document.querySelector('.main-content').classList.toggle('expanded');
+            });
+            
+            document.querySelector('.sidebar-close').addEventListener('click', function() {
+                document.querySelector('.sidebar').classList.remove('active');
+                document.querySelector('.main-content').classList.remove('expanded');
+            });
+            
+            // Menu Navigation
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    // Remove active class from all menu items
+                    document.querySelectorAll('.menu-item').forEach(i => {
+                        i.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked item
+                    this.classList.add('active');
+                    
+                    // Hide all pages
+                    document.querySelectorAll('.page').forEach(page => {
+                        page.classList.remove('active');
+                    });
+                    
+                    // Show selected page
+                    const pageId = this.getAttribute('data-page');
+                    document.getElementById(pageId).classList.add('active');
+                });
+            });
+            
+            // Theme Toggle
+            document.getElementById('theme-toggle').addEventListener('click', function() {
+                document.body.classList.toggle('dark-mode');
+                isDarkMode = !isDarkMode;
+            });
+            
+            // Tool Tabs
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    document.querySelectorAll('.tab-btn').forEach(b => {
+                        b.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Hide all tab contents
+                    document.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // Show selected tab content
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Laser Cutting Calculator
+            document.getElementById('laser-calculator').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const material = document.getElementById('laser-material').value;
+                const thickness = parseFloat(document.getElementById('laser-thickness').value);
+                const length = parseFloat(document.getElementById('laser-length').value);
+                
+                // Simple pricing model (in a real app, this would be more complex)
+                let costPerMeter = 0;
+                
+                switch(material) {
+                    case 'mild_steel':
+                        costPerMeter = 1.5 * thickness;
+                        break;
+                    case 'stainless_steel':
+                        costPerMeter = 2.0 * thickness;
+                        break;
+                    case 'aluminum':
+                        costPerMeter = 1.8 * thickness;
+                        break;
+                    case 'copper':
+                        costPerMeter = 2.5 * thickness;
+                        break;
+                }
+                
+                const totalCost = costPerMeter * length;
+                document.getElementById('laser-cost').textContent = totalCost.toFixed(2);
+                document.getElementById('laser-result').style.display = 'block';
+            });
+            
+            // CNC Bending Calculator
+            document.getElementById('cnc-calculator').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const material = document.getElementById('cnc-material').value;
+                const gauge = document.getElementById('cnc-gauge').value;
+                const bends = parseInt(document.getElementById('cnc-bends').value);
+                
+                // Simple pricing model
+                let costPerBend = 0;
+                
+                if (material === 'mild_steel') {
+                    costPerBend = 0.5;
+                } else if (material === 'stainless_steel') {
+                    costPerBend = 0.75;
+                } else if (material === 'aluminum') {
+                    costPerBend = 0.6;
+                }
+                
+                // Adjust for gauge
+                if (gauge === '18') costPerBend *= 1.0;
+                else if (gauge === '16') costPerBend *= 1.2;
+                else if (gauge === '14') costPerBend *= 1.5;
+                else if (gauge === '12') costPerBend *= 2.0;
+                
+                const totalCost = costPerBend * bends;
+                document.getElementById('cnc-cost').textContent = totalCost.toFixed(2);
+                document.getElementById('cnc-result').style.display = 'block';
+            });
+            
+            // Sheet Shearing Calculator
+            document.getElementById('shearing-calculator').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const material = document.getElementById('shearing-material').value;
+                const thickness = parseFloat(document.getElementById('shearing-thickness').value);
+                const size = parseFloat(document.getElementById('shearing-size').value);
+                const cuts = parseInt(document.getElementById('shearing-cuts').value);
+                
+                // Simple pricing model
+                let baseCost = size * 2; // $2 per m²
+                
+                if (material === 'mild_steel') {
+                    baseCost *= 1.0;
+                } else if (material === 'stainless_steel') {
+                    baseCost *= 1.5;
+                } else if (material === 'aluminum') {
+                    baseCost *= 1.2;
+                }
+                
+                // Adjust for thickness
+                baseCost *= (thickness / 1.0); // Normalized to 1mm
+                
+                // Add cost per cut
+                const totalCost = baseCost + (cuts * 0.5);
+                document.getElementById('shearing-cost').textContent = totalCost.toFixed(2);
+                document.getElementById('shearing-result').style.display = 'block';
+            });
+            
+            // Scroll Reveal Animation
+            const hiddenElements = document.querySelectorAll('.hidden');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            hiddenElements.forEach(el => observer.observe(el));
+            
+            // Helper Functions
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(email);
+            }
+        });
+    </script>
+</body>
+</html>

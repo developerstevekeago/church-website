@@ -1602,3 +1602,69 @@ header {
 .emergency-banner button:hover {
   color: #ffbaba;
 }
+
+
+
+
+
+.departments-track {
+  display: flex;
+  gap: 3rem;
+  width: fit-content;
+  animation: scroll-left 25s linear infinite;
+}
+
+.sda-departments:hover .departments-track {
+  animation-play-state: paused;
+}
+
+.department {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 140px;
+  text-align: center;
+}
+
+.department img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--sda-blue);
+  transition: transform 0.3s ease;
+}
+
+.department img:hover {
+  transform: scale(1.1);
+}
+
+.department span {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--sda-blue);
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive fix */
+@media (max-width: 768px) {
+  .departments-track {
+    gap: 1.5rem;
+  }
+  .department img {
+    width: 60px;
+    height: 60px;
+  }
+  .department span {
+    font-size: 0.85rem;
+  }
+}

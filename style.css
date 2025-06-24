@@ -1604,67 +1604,124 @@ header {
 }
 
 
+   .departments-scroller {
+            padding: 3rem 0;
+            background: linear-gradient(135deg, var(--sda-blue) 0%, var(--sda-green) 100%);
+            position: relative;
+            overflow: hidden;
+        }
 
+        .scroller-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
+        .section-title {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            position: relative;
+        }
 
-.departments-track {
-  display: flex;
-  gap: 3rem;
-  width: fit-content;
-  animation: scroll-left 25s linear infinite;
-}
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--sda-gold);
+            margin: 0.5rem auto;
+        }
 
-.sda-departments:hover .departments-track {
-  animation-play-state: paused;
-}
+        .departments-track {
+            display: flex;
+            gap: 2rem;
+            padding: 1rem 0;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE/Edge */
+        }
 
-.department {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 140px;
-  text-align: center;
-}
+        .departments-track::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
 
-.department img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--sda-blue);
-  transition: transform 0.3s ease;
-}
+        .department-card {
+            flex: 0 0 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
 
-.department img:hover {
-  transform: scale(1.1);
-}
+        .department-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
 
-.department span {
-  margin-top: 0.5rem;
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--sda-blue);
-}
+        .department-logo img {
+            width: 60%;
+            height: 60%;
+            object-fit: contain;
+        }
 
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
+        .department-name {
+            color: var(--text-light);
+            font-weight: 500;
+            text-align: center;
+            font-size: 0.9rem;
+        }
 
-/* Responsive fix */
-@media (max-width: 768px) {
-  .departments-track {
-    gap: 1.5rem;
-  }
-  .department img {
-    width: 60px;
-    height: 60px;
-  }
-  .department span {
-    font-size: 0.85rem;
-  }
-}
+        /* Auto-scroll animation */
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-120px * 7 - 2rem * 7)); }
+        }
+
+        .auto-scroll {
+            display: flex;
+            gap: 2rem;
+            width: calc(120px * 14 + 2rem * 14);
+            animation: scroll 40s linear infinite;
+        }
+
+        .auto-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .department-card {
+                flex: 0 0 100px;
+            }
+            
+            .department-logo {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .department-name {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .scroller-container {
+                padding: 0 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
